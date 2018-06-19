@@ -25,3 +25,5 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+/src/test/java/com/waylau/spring/boot/blog/initializrstart/controllertest/build.gradle
+/src/test/java/com/waylau/spring/boot/blog/initializrstart/build.gradle
