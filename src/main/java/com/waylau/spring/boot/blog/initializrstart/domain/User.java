@@ -2,7 +2,9 @@ package com.waylau.spring.boot.blog.initializrstart.domain;
 
 import lombok.Data;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * User. 
@@ -11,19 +13,27 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement // mediatype 转为xml
 @Data
-public class User {
+@Entity
+public class User implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id; // 用户的唯一标识
- 	private String name;
+	@Column(nullable = false)
+	private String name;
+	@Column(nullable = false)
 	private int age;
 
-	public User() {
+	protected User() {
 	}
 
 	public User(String name, int age) {
 		this.name = name;
 		this.age = age;
 	}
-
+	@Override
+ 	public String toString(){
+		return String.format("User[id=%d,name =' %s',age = %d]",id,name,age);
+	}
 
 }
